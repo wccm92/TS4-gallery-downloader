@@ -127,3 +127,40 @@ Your feedback helps make the script better for everyone 💛
 > This project is not affiliated with or endorsed by Electronic Arts or Maxis.  
 > “The Sims” and related assets are trademarks of Electronic Arts Inc.  
 > This script is for personal backup and educational use only. Use responsibly.
+
+
+## 📦 Bulk Downloader (Download All Results at Once)
+
+In addition to the per-item Download button, this repo includes a
+**bulk downloader script** that downloads every result from your active
+Gallery search in a single run.
+
+### What it does
+
+- Reads your active search filters directly from the page URL
+- Fetches **all pages** of results from EA's Gallery API (no scrolling needed)
+- For each item, generates a game-ready ZIP containing:
+  - `.trayitem` — the binary metadata file the game indexes
+  - `.blueprint` / `.householdbinary` / `.room` — the actual content data
+- Files are named and structured identically to the per-item downloader
+
+### Installation
+
+1. Make sure the main TS4 Gallery Downloader script is installed first
+2. In Tampermonkey Dashboard, click **+** to add a new script
+3. Paste the contents of `TS4-Gallery-Bulk-Downloader.user.js` and save
+
+### Usage
+
+1. Go to the [EA Gallery](https://www.ea.com/games/the-sims/the-sims-4/pc/gallery)
+2. Apply a search or filter (by creator, category, hashtag, etc.)
+3. Click the green **📦 Download All Results** button (bottom-right corner)
+4. Wait for all ZIPs to download — a progress bar shows current status
+5. Unzip all files into `Documents\Electronic Arts\The Sims 4\Tray`
+6. Launch the game — items will appear in your Library
+
+### Notes
+
+- Chrome will ask "Allow ea.com to download multiple files?" on first run — click **Allow**
+- Items that have been removed from the Gallery or have corrupt server files will be skipped
+- Progress and any errors are visible in the browser console (`F12 → Console`)
